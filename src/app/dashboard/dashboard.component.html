@@ -1,0 +1,259 @@
+<div class="container">
+    <div class="pseudo_div">
+
+    </div>
+    <div class="side_menu">
+        <div>
+            <mat-icon>home</mat-icon>
+        </div>
+        <div class="side_menu_icons">
+            <p>
+                <mat-icon>alarm</mat-icon>
+            </p>
+            <p>
+                <mat-icon>perm_identity</mat-icon>
+            </p>
+            <p>
+                <mat-icon>calendar_today</mat-icon>
+            </p>
+            <p>
+                <mat-icon>card_travel</mat-icon>
+            </p>
+        </div>
+        <div>
+            <mat-icon>settings</mat-icon>
+        </div>
+    </div>
+    <div class="side_bar">
+        <div>
+            <p class="item_1">
+                Design thinking and Innovation
+                <br>
+                <span class="item_2">Week #7</span>
+            </p>
+
+        </div>
+        <div>
+            <p class="item_3">
+                <mat-icon>location_on</mat-icon>
+                <span style="font-size: 12px;">lorem ipsum</span>
+            </p>
+            <p class="item_4">
+                <mat-icon>calendar_today</mat-icon>
+                <span style="font-size: 12px;">lorem ipsum lorem ipsum lorem</span>
+            </p>
+        </div>
+        <div>
+            <span style="margin-left: 20px;font-size: 1.3rem;font-weight: 500;">
+                {{value_slider}}%
+            </span>
+            <mat-slider [(ngModel)]="value_slider"></mat-slider>
+        </div>
+        <div>
+            <p class="item_5">
+                Export Report
+                <br>
+                <span class="item_6">lorem ipsum lorem ipsum</span>
+            </p>
+        </div>
+        <div>
+            <p class="item_5">
+                Event Status
+                <br>
+                <span class="item_6">lorem ipsum lorem ipsum</span>
+            </p>
+        </div>
+        <div>
+            <p class="item_5">
+                Event in public
+                <br>
+                <span class="item_6">lorem ipsum lorem ipsum</span>
+            </p>
+        </div>
+        <div>
+            <p class="item_5">
+                Promotion Type
+                <br>
+                <span class="item_6">lorem ipsum lorem ipsum</span>
+            </p>
+        </div>
+
+    </div>
+    <div class="dashboard">
+        <mat-tab-group class="dashboard1" mat-align-tabs="start">
+            <mat-tab label="Event Dashboard" class="dashboard2">
+                <div class="dashboard_content">
+                    <div cdkDropList cdkDropListOrientation="horizontal" class="firstrow"
+                        (cdkDropListDropped)="drop1($event)">
+                        <ng-container *ngFor="let each of firstRow">
+                            <div class="netsales" *ngIf="each == 'netsales'" cdkDrag>
+                                
+                                    <p class="card_title">NET SALES</p>
+                                    <div class="card_subtitle">
+                                        <p>The Mark <br>
+                                            <span style="color:blue;font-size: 1rem;">$ 23,435</span>
+                                        </p>
+                                        <p>Previous Mark
+                                            <br> <span style="color:blue;font-size: 1rem;">$ 45,449</span>
+                                        </p>
+                                        <p>this Week</p>
+                                    </div>
+                                    <div class="chart">
+                                        <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"
+                                        style="width:450px; height: 120px; display:block;margin-left: 20px;">
+                                    </highcharts-chart>
+                                    </div>
+
+                            </div>
+                            <div class="ticket" *ngIf="each == 'ticket'" cdkDrag>
+                                <p class="card_title">FIRED TICKET</p>
+                                <div class="chart">
+                                    <mat-progress-spinner [color]="color" [mode]="mode"
+                                    [value]="spinner_value">
+                                </mat-progress-spinner>
+                                </div>
+                          
+                                <div class="card_subtitle">
+                                    <p>Gross <br> <span>$2300</span></p>
+                                    <p>Online <br> <span>$4500</span></p>
+                                </div>
+                            </div>
+                            <div class="gross" *ngIf="each == 'gross_sales'" cdkDrag>
+                                <div class="gross_child">
+                                    <p class="card_title">Gross Sales</p>
+                                    <div class="chart">
+                                        <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"
+                                        style="width:150px; height: 50px; display:block;margin-left: 20px;">
+                                    </highcharts-chart>
+                                    </div>
+                                
+                                </div>
+                                <div>
+                                    <p class="card_title">Online Sales</p>
+                                    <div class="chart">
+                                        <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"
+                                        style="width:150px; height: 50px; display:block;margin-left: 20px;">
+                                        </highcharts-chart>
+                                    </div>
+                                 
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div cdkDropList cdkDropListOrientation="horizontal" class="secRow"
+                        (cdkDropListDropped)="drop2($event)">
+                        <!-- <div class="secRow_items" *ngFor="let each of secondRow" cdkDrag>
+                             {{each}}
+                         </div> -->
+                        <ng-container *ngFor="let each of secondRow">
+                            <div class="recent_sales" *ngIf="each == 'recent_sales'" cdkDrag>
+                                <p class="card_title">Recent Sales</p>
+                                <div class="card_subtitle">
+                                    <p>The Mark <br>
+                                        <span style="color:blue;font-size: 1rem;">$ 23,435</span>
+                                    </p>
+                                    <p>Previous Mark
+                                        <br> <span style="color:blue;font-size: 1rem;">$ 45,449</span>
+                                    </p>
+                                    <p>this Week</p>
+                                </div>
+                                <div class="chart">
+                                    <table mat-table [dataSource]="dataSource">
+                                        <ng-container matColumnDef="position">
+                                          <th mat-header-cell *matHeaderCellDef> No. </th>
+                                          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                                        </ng-container>
+                                      
+                                        <ng-container matColumnDef="name">
+                                          <th mat-header-cell *matHeaderCellDef> Name </th>
+                                          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                                        </ng-container>
+                                      
+                                        <ng-container matColumnDef="weight">
+                                          <th mat-header-cell *matHeaderCellDef> Weight </th>
+                                          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                                        </ng-container>
+                               
+                                        <ng-container matColumnDef="symbol">
+                                          <th mat-header-cell *matHeaderCellDef> Symbol </th>
+                                          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                                        </ng-container>
+                                      
+                                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                                      </table>
+                                </div>
+                            
+                            </div>
+                            <div class="event_goals" *ngIf="each == 'event_goals'" cdkDrag>
+                                <p class="card_title">EVENT GOALS</p>
+                                <div class="chart">
+                                    <mat-progress-spinner color="warn" [mode]="mode"
+                                    [value]="spinner_value">
+                                </mat-progress-spinner>
+                                </div>
+                                
+                                <div class="card_subtitle">
+                                    <p>Gross <br> <span>$2300</span></p>
+                                    <p>Online <br> <span>$4500</span></p>
+                                </div>
+                            </div>
+                            <div class="email_campaign" *ngIf="each == 'email_campaign'" cdkDrag>
+                                <div class="email_firstchild">
+                                    <p class="card_title">Email Campaign</p>
+                                    
+                                    <mat-slider [(ngModel)]="value_slider"></mat-slider>
+                                    
+                                    <mat-slider [(ngModel)]="value_slider"></mat-slider>
+                                </div>
+                                <div>
+                                    <p class="card_title">Venue Expenses</p>
+                                    <div class="chart">
+                                        <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"
+                                        style="width:150px; height: 50px; display:block;margin-left: 20px;">
+                                        </highcharts-chart>
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Event Designs"></mat-tab>
+            <mat-tab label="Event Settings"></mat-tab>
+
+        </mat-tab-group>
+        <div class="dashboard_header">
+            <span class="items">
+                <mat-icon class="icon">search</mat-icon>
+            </span>
+            <span class="items">
+                <mat-icon class="icon">notifications</mat-icon>
+            </span>
+            <span class="items">
+                <mat-icon class="icon">perm_identity</mat-icon>
+            </span>
+        </div>
+    </div>
+</div>
+<!-- <div class="shdw">
+    1st
+</div>
+<div class="shdw">
+    2nd
+</div>
+<div class="split_divs">
+    <div class="shdw">3.1</div>
+    <div class="shdw">3.2</div>
+</div>
+<div class="shdw">
+    4th
+</div>
+<div class="shdw">
+    5th
+</div>
+<div class="split_divs">
+    <div class="shdw">6.1</div>
+    <div class="shdw">6.2</div>
+</div> -->

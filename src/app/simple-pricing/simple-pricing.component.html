@@ -1,0 +1,93 @@
+<div class="container">
+    <div class="top_portion">
+        <p class="title">Simple Pricing</p>
+        <div class="email_div">
+            <input type="text" placeholder="Your work email...">
+            <button>Get Started Free</button>
+        </div>
+        <p class="subtitle_text">Free forever version with Unlimited Users.Free 14 days trial to test Premium.</p>
+        <p class="subtitle_text2">
+            <span>
+                FREE Asana & Jira Migration! Transfer everything in seconds !
+            </span>
+        </p>
+
+    </div>
+    <div class="cards">
+        <div class="card_1">
+            <p class="text1">Free</p>
+            <p class="margin_top_20"><span class="text1">$</span><span class="text2">0</span> </p>
+            <p class="text3">per user/month</p>
+
+            <div style="display: grid;place-items: center;">
+                <p>
+                    <span><b>Unlimited</b></span>&nbsp;
+                    <span>Users</span>
+                </p>
+                <p style="border-bottom: 1px dashed rgb(214, 214, 214);">
+                    <span><b>Basic</b></span>&nbsp;
+                    <span>Permissions</span>
+                </p>
+                <p>
+                    <span><b>100 MB</b></span>&nbsp;
+                    <span>Total Storage</span>
+                </p>
+            </div>
+        </div>
+        <div class="card_2">
+            <p class="text1">Premium</p>
+            <p class="margin_top_20"><span class="text1">$</span><span class="text2">4</span><span
+                    class="text1">.99</span></p>
+            <p class="text3">per user/month</p>
+            <div class="slider">
+                <p>monthly</p>
+                <mat-slide-toggle color="primary" checked="true">
+                    Yearly
+                </mat-slide-toggle>
+            </div>
+            <p class="slider_subtext">Saving 20% a year</p>
+            <div style="display: grid;place-items: center;">
+                <p style="border-bottom: 1px dashed rgb(214, 214, 214);">
+                    <span><b>Free Guest</b></span>
+                    <span>Users</span>
+                </p>
+
+                <p style="border-bottom: 1px dashed rgb(214, 214, 214);">
+                    <span><b>Advanced</b></span>
+                    <span>Permissions</span>
+                </p>
+
+                <p style="border-bottom: 1px dashed rgb(214, 214, 214);">
+                    <span><b>+10 GB</b></span>
+                    <span>Total Storage</span>
+                </p>
+
+                <p>
+                    <span><b>Priority</b></span>
+                    <span>Support</span>
+                </p>
+            </div>
+        </div>
+        <div class="card_3">
+            <p class="text_1">Calculate how much you'd spend</p>
+            <div class="text_2">
+                <div>
+                    <p class="text_top">84</p>
+                    <p class="text_btm"># of users</p>
+                </div>
+                <div>
+                    <p class="text_top">$ 167</p>
+                    <p class="text_btm">Per month (billed yearly)</p>
+                </div>
+            </div>
+            <div>
+                <mat-slider color="accent" max="100" min="0" [(ngModel)]="value_slider" style="width:18vw">
+                </mat-slider>
+                <div class="slider_sub">
+                    <span>0</span>
+                    <span>200+</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
